@@ -2,6 +2,7 @@ require '../skill_tests/lib/random_60.rb'
 require '../skill_tests/lib/adder.rb'
 require '../skill_tests/lib/gas.rb'
 require '../skill_tests/lib/flip.rb'
+require '../skill_tests/lib/sentence.rb'
 
 def ask question
 	puts question
@@ -19,6 +20,9 @@ def ask question
 	elsif request == 'flip'
 		run = Flip.new
 		run.flip_out
+	elsif request == 'string'
+		run = Sentence.new
+		run.string
 	elsif request == 'exit'
 		exit
 	else
@@ -32,5 +36,6 @@ ask "\nWhich program do you want to start?\nEnter:
 	Random		random numbers between -10 and 10, and their percentages
 	Gas		calculate your rental cars gas consumption
 	Flip		reverse the numbers you enter
+	String		Type in a sentence, and get facts
 		or
 	Exit		exit the program"
