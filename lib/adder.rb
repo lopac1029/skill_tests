@@ -1,3 +1,5 @@
+#http://www.daniweb.com/software-development/cpp/threads/423124/series-of-easy-coding-exercises-with-code-snippet-solutions#post1806757
+
 class Adder
 	def get_numbers
 		puts "\nPlease enter a number of 20 or greater."

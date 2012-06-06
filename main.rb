@@ -1,6 +1,6 @@
 require '../skill_tests/lib/random_60.rb'
 require '../skill_tests/lib/adder.rb'
-#require '../skill_tests/lib/gas.rb'
+require '../skill_tests/lib/gas.rb'
 
 def ask question
 	puts question
@@ -13,8 +13,8 @@ def ask question
 		run = Random_60.new
 		run.view
 	elsif request == 'gas'
-		puts 'Gas is working properly'#run = Gas.new
-		#run.view
+		run = Gas.new
+		run.calculate
 	elsif request == 'exit'
 		exit
 	else
