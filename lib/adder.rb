@@ -1,32 +1,25 @@
 class Adder
 	def get_numbers
-		puts 'Please enter a number of 20 or greater.'
+		puts "\nPlease enter a number of 20 or greater."
 		number = gets.chomp.to_i
+
 		until number > 19
-			puts
-			puts 'You entered ' + number.to_s + ', which is not equal to or greater than 20.'
-			puts 'Please choose again correctly.' 
+			puts "\nYou entered #{number}, which is not equal to or greater than 20.\nPlease choose again correctly." 
 			number = gets.chomp.to_i
 		end
 		if number >= 20
-			puts
-			puts 'Please chose an option of 1, 2, or 3.'
+			puts "\nPlease chose an option of 1, 2, or 3."
 		end
 		option = gets.chomp.to_i
 		until option.between?(1, 3)
-			puts
-			puts 'You did not choose a correct option'
-			puts 'Please choose again correctly.'
+			puts "\nYou did not choose a correct option.\nPlease choose again correctly."
 			option = gets.chomp.to_i
 		end
 		if option == 1
 			int=((number*number)-(option*option)+number+option)/2;
-			puts
-			puts 'The sum of all numbers between 1 and ' + number.to_s + ' is ' + int.to_s + '.'
-			puts
+			puts "\nThe sum of all numbers between 1 and #{number} is #{int}.\n\n"
 		elsif option == 2
-			puts
-			puts 'The odd numbers from 1 to ' + number.to_s + ' are: '
+			puts "\nThe odd numbers from 1 to #{number} are:"
 			x = 1
 			array = []
 			while x <= number
@@ -35,13 +28,8 @@ class Adder
 			end
 			puts array.join(', ')
 			puts
-		elsif @option == 3
-			puts
-			puts 'Thanks for entering number ' + number.to_s + '! Option ' + option.to_s + ' does nothing.'
-			puts
+		elsif option == 3
+			puts "\nThanks for entering number #{number}! Option #{option} does nothing.\n\n"
 		end
-	end
-	def view
-		get_numbers
 	end
 end

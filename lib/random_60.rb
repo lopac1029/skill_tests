@@ -11,32 +11,36 @@ class Random_60
 		@negative = @numbers.select{|x| x < 0}
 		@positive = @numbers.select{|x| x > 0}
 		@zero = @numbers.select{|x| x == 0}
+
+		percent(@positive, @numbers)
+		percent(@negative, @numbers)
+		percent(@zero, @numbers)
 	end
-	
 	def percent (variable, total)
 		percent = ((100 * variable.length) / total.length).to_s
 
 		if variable.first == 0 || variable.first == nil
-			puts percent.to_s + '% of the numbers are zeros.'
+			@zero_perc = "#{percent}% of the numbers are zeros."
 		elsif variable.first < 0
-			puts percent.to_s + '% of the numbers are negative.'
+			@neg_perc = "#{percent}% of the numbers are negative."
 		elsif variable.first > 0
-			puts percent.to_s + '% of the numbers are positive.'
+			@pos_perc = "#{percent}% of the numbers are positive."
 		end
 	end
 	def view
 		get_random
 
-		puts "\nThe " + @numbers.length.to_s + " numbers that are randomly choosen are"
+
+		puts "\nThe #{@numbers.length} numbers that are randomly choosen are"
 		puts @numbers[0..19].join(', ')
 		puts @numbers[20..39].join(', ')
 		puts @numbers[40..59].join(', ')
-		puts "\nThere are "+@positive.length.to_s+" positive numbers (not including 0), and they are\n"+@positive.join(', ')
-		puts "\nThere are "+@negative.length.to_s+ " negative numbers, and they are\n"+@negative.join(', ')
+		puts "\nThere are #{@positive.length} positive numbers (not including 0), and they are\n"+@positive.join(', ')
+		puts "\nThere are #{@negative.length} negative numbers, and they are\n"+@negative.join(', ')
 		puts "\n________________________________________\n\n"
-		percent(@positive, @numbers)
-		percent(@negative, @numbers)
-		percent(@zero, @numbers)
-		puts "\n\n"	
+		puts @pos_perc
+		puts @neg_perc
+		puts @zero_perc
+		puts "\n"	
 	end
 end
